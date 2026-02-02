@@ -14,7 +14,7 @@ export default function ContactSection() {
                     <div className="flex justify-center gap-4 sm:gap-6">
                         {/* Email */}
                         <a
-                            href="mailto:maadhuavati07@gmail.com"
+                            href="mailto:maadhuavati7@gmail.com"
                             className="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center rounded-full bg-[var(--color-bg-secondary)] border border-[var(--color-border-subtle)] hover:border-[var(--color-accent)] hover:bg-[var(--color-accent)] active:scale-95 text-[var(--color-text-secondary)] hover:text-white transition-all touch-target"
                             aria-label="Email"
                         >
