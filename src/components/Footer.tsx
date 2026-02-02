@@ -2,8 +2,8 @@ export default function Footer() {
     const currentYear = new Date().getFullYear();
 
     return (
-        <footer className="py-8 bg-[var(--color-bg-secondary)] border-t border-[var(--color-border-subtle)]">
-            <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
+        <footer className="py-6 sm:py-8 bg-[var(--color-bg-secondary)] border-t border-[var(--color-border-subtle)] footer-safe">
+            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-12">
                 <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
                     <div className="text-[var(--color-text-muted)] text-sm">
                         &copy; {currentYear} Maadhu Avati
@@ -13,7 +13,7 @@ export default function Footer() {
                             href="https://github.com/Maadhu938"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors"
+                            className="text-[var(--color-text-muted)] hover:text-[var(--color-accent)] active:scale-95 transition-all p-2 -m-2 touch-target"
                             aria-label="GitHub"
                         >
                             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -26,3 +26,4 @@ export default function Footer() {
         </footer>
     );
 }
+

@@ -28,12 +28,64 @@
 /* Base styles */
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
   background-color: var(--color-bg-primary);
   color: var(--color-text-primary);
   font-family: var(--font-sans);
+  min-height: 100vh;
+  min-height: 100dvh;
+  /* Safe area insets for notched devices */
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+
+/* Fluid Typography */
+.text-fluid-xs {
+  font-size: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+}
+
+.text-fluid-sm {
+  font-size: clamp(0.875rem, 0.8rem + 0.375vw, 1rem);
+}
+
+.text-fluid-base {
+  font-size: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
+}
+
+.text-fluid-lg {
+  font-size: clamp(1.125rem, 1rem + 0.625vw, 1.25rem);
+}
+
+.text-fluid-xl {
+  font-size: clamp(1.25rem, 1rem + 1.25vw, 1.5rem);
+}
+
+.text-fluid-2xl {
+  font-size: clamp(1.5rem, 1.25rem + 1.25vw, 1.875rem);
+}
+
+.text-fluid-3xl {
+  font-size: clamp(1.875rem, 1.5rem + 1.875vw, 2.25rem);
+}
+
+.text-fluid-4xl {
+  font-size: clamp(2.25rem, 1.75rem + 2.5vw, 3rem);
+}
+
+.text-fluid-5xl {
+  font-size: clamp(3rem, 2rem + 5vw, 4rem);
+}
+
+.text-fluid-6xl {
+  font-size: clamp(3.5rem, 2.5rem + 5vw, 4.5rem);
+}
+
+.text-fluid-hero {
+  font-size: clamp(2.5rem, 1.5rem + 5vw, 5rem);
 }
 
 /* Hide scrollbar for horizontal scroll but keep functionality */
@@ -72,14 +124,29 @@ body {
       var(--color-accent-muted) 100%);
 }
 
-/* Card hover effect */
+/* Card hover effect - optimized for touch and mouse */
 .card-hover {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.card-hover:hover {
-  transform: scale(1.02);
-  box-shadow: 0 8px 30px rgba(59, 130, 246, 0.15);
+@media (hover: hover) and (pointer: fine) {
+  .card-hover:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 30px rgba(59, 130, 246, 0.15);
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .card-hover:active {
+    transform: scale(0.98);
+  }
+}
+
+/* Minimum touch target size (48px as per WCAG) */
+.touch-target {
+  min-width: 48px;
+  min-height: 48px;
 }
 
 /* Focus styles for accessibility */
@@ -116,4 +183,47 @@ button:focus-visible {
   border-color: var(--color-accent);
   color: var(--color-text-primary);
   background-color: var(--color-bg-tertiary);
+}
+
+/* Mobile menu backdrop */
+.mobile-menu-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 40;
+}
+
+/* Responsive container with safe areas */
+.container-safe {
+  padding-left: max(1rem, env(safe-area-inset-left));
+  padding-right: max(1rem, env(safe-area-inset-right));
+}
+
+/* Footer safe area for home indicator */
+.footer-safe {
+  padding-bottom: max(2rem, env(safe-area-inset-bottom));
+}
+
+/* Smooth scrolling optimization for iOS */
+.scroll-smooth-ios {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Prevent layout shift on scrollbar */
+html {
+  scrollbar-gutter: stable;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

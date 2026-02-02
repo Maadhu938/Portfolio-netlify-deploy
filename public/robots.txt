@@ -1,0 +1,11 @@
+# Portfolio - Maadhu Avati
+# https://maadhuavati.in
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://maadhuavati.in/sitemap.xml
+
+# Crawl-delay for politeness (optional)
+Crawl-delay: 1
