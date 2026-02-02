@@ -25,7 +25,7 @@ export default function ContactSection() {
 
                         {/* WhatsApp */}
                         <a
-                            href="https://wa.me/919380009839"
+                            href="https://wa.me/9100000000"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center rounded-full bg-[var(--color-bg-secondary)] border border-[var(--color-border-subtle)] hover:border-[var(--color-accent)] hover:bg-[var(--color-accent)] active:scale-95 text-[var(--color-text-secondary)] hover:text-white transition-all touch-target"
